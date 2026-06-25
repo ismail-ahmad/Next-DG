@@ -1,25 +1,30 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import '@/app/globals.css';
 import {Gruppo, Nunito, League_Spartan, Source_Sans_3} from 'next/font/google';
 
 const gruppo = Gruppo({
   weight: '400',
-  subsets: ['latin']
+  subsets: ['latin'],
+  variable: '--gruppo'
 });
 
 const nunito = Nunito({
   weight: '400',
-  subsets: ['latin']
+  subsets: ['latin'],
+  variable: '--nunito'
 });
 
 const leagueSpartan = League_Spartan({
   weight: '400',
-  subsets: ['latin']
+  subsets: ['latin'],
+  variable: '--league-spartan'
 });
 
 const sourceSans3 = Source_Sans_3({
   weight: '400',
-  subsets: ['latin']
+  subsets: ['latin'],
+  variable: '--source-sans-3'
 });
 
 export const metadata:Metadata = {
@@ -28,7 +33,7 @@ export const metadata:Metadata = {
 }
 export default function RootLayout({children}: {children: React.ReactNode}){
   return(
-    <html>
+    <html className={`${sourceSans3.variable} ${leagueSpartan.variable} ${nunito.variable} ${gruppo.variable}`}>
 
   <link rel="icon" href="/light-favicon-180x180.svg" type="image/svg+xml" media="(prefers-color-scheme: light)" />
   {/* <link rel="icon" sizes="32x32" href="/favicon-32x32.png" type="image/png" media="(prefers-color-scheme: light)">
@@ -43,7 +48,7 @@ export default function RootLayout({children}: {children: React.ReactNode}){
   <link rel="canonical" href="https://www.designgravitas.com" />
       <body className={sourceSans3.className}>
         <header className={"header"}>
-    <a href="/">
+    <Link href="/">
         <div className={`logo-group ${gruppo.className}`}>
             <div className="logo">
                 <svg width="75" height="41" viewBox="0 0 75 41" fill="transparent" xmlns="http://www.w3.org/2000/svg">
@@ -56,26 +61,21 @@ export default function RootLayout({children}: {children: React.ReactNode}){
               Design&nbsp;Gravitas
             </p>
           </div>
-    </a>
+    </Link>
     <div className="menu-close-button"></div>
     <nav className="nav-menu">      
       <ul className={leagueSpartan.className}>
-        <li><a href="/">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><Link href="/">Home</Link></li>
+        <li><Link href="#services">Services</Link></li>
+        <li><Link href="#contact">Contact</Link></li>
         <li style={{display: 'none'}}><a href="#about">About</a></li>
       </ul>
     </nav>
     <svg className ="menu-open-button" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="white"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
-    <div className="cta-button-container" style={{backgroundColor: 'transparent'}}>
-      <a id="header-cta-button" target="_blank" href = 'https://calendly.com/ismailahmad/book-a-consultation'>
-          <button className="cta-button">Book a Consultation</button>
-      </a>
-    </div>
   </header>
         {children}
-        <footer>
-    <div className="footer-heading">
+        <footer className={`${gruppo.className}`}>
+    <div className={`footer-heading`}>
         <p>© 2025 Design Gravitas All rights reserved.</p>
     </div>
 </footer>
