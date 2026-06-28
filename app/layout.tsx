@@ -10,19 +10,19 @@ const gruppo = Gruppo({
 });
 
 const nunito = Nunito({
-  weight: '400',
+  weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
   subsets: ['latin'],
   variable: '--nunito'
 });
 
 const leagueSpartan = League_Spartan({
-  weight: '400',
+  weight: ['100','200', '300', '400', '500', '600', '700', '800', '900'],
   subsets: ['latin'],
   variable: '--league-spartan'
 });
 
 const sourceSans3 = Source_Sans_3({
-  weight: '400',
+  weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
   subsets: ['latin'],
   variable: '--source-sans-3'
 });
@@ -48,9 +48,9 @@ export default function RootLayout({children}: {children: React.ReactNode}){
   <link rel="canonical" href="https://www.designgravitas.com" />
       <body className={sourceSans3.className}>
         <header className={"header"}>
-    <Link href="/">
-        <div className={`logo-group ${gruppo.className}`}>
-            <div className="logo">
+          <Link href="/">
+            <div className={`logo-group ${gruppo.className}`}>
+              <div className="logo">
                 <svg width="75" height="41" viewBox="0 0 75 41" fill="transparent" xmlns="http://www.w3.org/2000/svg">
                 <rect width="74.2004" height="41" fill="transparent"/>
                 <path d="M64.0402 19.5525L63.3865 28.8162C53.2689 30.9108 37.3772 31.0283 37.3162 22.0003C37.2367 10.2259 66.3222 8.91588 66.3222 8.91588L64.0402 11.453" stroke="#1E90FF" strokeWidth="4"/>
@@ -60,25 +60,23 @@ export default function RootLayout({children}: {children: React.ReactNode}){
             <p className="logo-text">
               Design&nbsp;Gravitas
             </p>
-          </div>
-    </Link>
-    <div className="menu-close-button"></div>
-    <nav className="nav-menu">      
-      <ul className={leagueSpartan.className}>
-        <li><Link href="/">Home</Link></li>
-        <li><Link href="#services">Services</Link></li>
-        <li><Link href="#contact">Contact</Link></li>
-        <li style={{display: 'none'}}><a href="#about">About</a></li>
-      </ul>
-    </nav>
-    <svg className ="menu-open-button" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="white"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
-  </header>
+            </div>
+          </Link>
+          <nav className="nav-menu">
+            <ul className={sourceSans3.className}>
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="#services">Services</Link></li>
+              <li><Link href="#contact">Contact</Link></li>
+            </ul>
+          </nav>
+          <svg className ="menu-open-button" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="white"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+        </header>
         {children}
         <footer className={`${gruppo.className}`}>
-    <div className={`footer-heading`}>
-        <p>© 2025 Design Gravitas All rights reserved.</p>
-    </div>
-</footer>
+          <div className={`footer-content`}>
+            <p>© 2025 Design Gravitas All rights reserved.</p>
+          </div>
+        </footer>
       </body>
     </html>
   );
